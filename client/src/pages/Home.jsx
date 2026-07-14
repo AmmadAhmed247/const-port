@@ -53,13 +53,17 @@ const SITE_URL = "https://traxmanagementgroup.com/";
 const Photo = ({ src, alt, gradient, className = "" }) => {
   const [failed, setFailed] = useState(false);
   return (
-    <div className={`relative overflow-hidden ${className}`}>
+    <div className={` overflow-hidden ${className}`}>
       <div className="absolute inset-0" style={{ background: gradient }} />
       {!failed && (
         <img
           src={src}
           alt={alt}
-          onError={() => setFailed(true)}
+          onError={(e) => {
+            // fall back to a known hero image if the requested src fails to load
+            e.currentTarget.onerror = null;
+            e.currentTarget.src = "/assets/hero.png";
+          }}
           className="absolute inset-0 w-full h-full object-cover"
         />
       )}
@@ -132,29 +136,29 @@ const PROJECTS = [
   {
     name: "Private Villa",
     location: "Emirates Hills, Dubai",
-    cta: "Learn Project",
-    img: "/assets/projects/private-villa.jpg",
+    
+    img: "/assets/8.jfif",
     gradient: "linear-gradient(160deg, #3a2c1c 0%, #0B0A08 75%)",
   },
   {
     name: "Corporate Office",
     location: "DIFC, Dubai",
-    cta: "View Project",
-    img: "/assets/projects/corporate-office.jpg",
+    
+    img: "/assets/2.jfif",
     gradient: "linear-gradient(160deg, #2a2a28 0%, #0B0A08 75%)",
   },
   {
     name: "F&B Restaurant",
     location: "Jumeirah, Dubai",
-    cta: "Learn Project",
-    img: "/assets/projects/fb-restaurant.jpg",
+   
+    img: "/assets/6.jfif",
     gradient: "linear-gradient(160deg, #3d2e18 0%, #0B0A08 75%)",
   },
   {
     name: "Retail Boutique",
     location: "Mall of the Emirates, Dubai",
-    cta: "Learn Project",
-    img: "/assets/projects/retail-boutique.jpg",
+    
+    img: "/assets/3.jfif",
     gradient: "linear-gradient(160deg, #2e2a24 0%, #0B0A08 75%)",
   },
 ];
@@ -193,7 +197,7 @@ export default function TraxLanding() {
       {/* ---------- HERO ---------- */}
       <section id="home" className="relative h-[92vh] min-h-[640px] flex items-center overflow-hidden">
         <Photo
-          src="/assets/hero-skyline.jpg"
+          src="/assets/main.jfif"
           alt="Luxury living room interior with Dubai skyline at dusk"
           gradient="linear-gradient(100deg, #0B0A08 15%, #2a2115 55%, #4a3520 100%)"
           className="absolute inset-0"
@@ -212,7 +216,7 @@ export default function TraxLanding() {
               Specialists in luxury fit-out, design, project management and quality delivery
               across the UAE.
             </p>
-            <OutlineButton href="#projects">View Our Projects</OutlineButton>
+           
           </div>
         </div>
       </section>
@@ -269,12 +273,7 @@ export default function TraxLanding() {
                 <div className="absolute inset-0 flex flex-col justify-end p-4">
                   <h3 className="text-xs tracking-[0.1em] uppercase font-semibold">{p.name}</h3>
                   <p className="text-[11px] text-[#F5F1E6]/60 mb-2">{p.location}</p>
-                  <a
-                    href="#projects"
-                    className="inline-flex items-center gap-1.5 text-[10px] tracking-[0.15em] uppercase text-[#C6A15B]"
-                  >
-                    {p.cta} <ArrowRight size={11} />
-                  </a>
+                  
                 </div>
               </div>
             ))}
@@ -345,7 +344,7 @@ export default function TraxLanding() {
       {/* ---------- CTA ---------- */}
       <section id="contact" className="relative py-28 md:py-32 overflow-hidden">
         <Photo
-          src="/assets/cta-skyline.jpg"
+          src="/assets/1.jfif"
           alt="Dubai skyline at dusk"
           gradient="linear-gradient(120deg, #0B0A08 20%, #2c2013 100%)"
           className="absolute inset-0"
@@ -360,14 +359,14 @@ export default function TraxLanding() {
             From concept to completion, we are your trusted partner in creating exceptional
             spaces.
           </p>
-          <SolidButton href={SITE_URL} target="_blank" rel="noopener noreferrer">
+          <Link to={"/register-interest"} className="inline-flex items-center gap-2 bg-[#C6A15B] text-[#0B0A08] px-7 py-3.5 text-[11px] tracking-[0.2em] uppercase font-semibold hover:bg-[#d6b571] transition-colors">
             Start Your Project
-          </SolidButton>
+          </Link>
         </div>
       </section>
 
       {/* ---------- FOOTER ---------- */}
-      <Footer />
+      
     </div>
   );
 }

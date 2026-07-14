@@ -74,28 +74,28 @@ const SNAG_STEPS = [
     icon: Eye,
     title: "Snagging",
     desc: "We inspect your property thoroughly to identify all defects and issues.",
-    img: "/assets/snags/snagging.jpg",
+    img: "/assets/snagging.png",
     gradient: "linear-gradient(160deg, #d8d2c4 0%, #b8b0a0 100%)",
   },
   {
     icon: ClipboardList,
     title: "Reporting",
     desc: "You receive a detailed snag report with photos and clear notes.",
-    img: "/assets/snags/reporting.jpg",
+    img: "/assets/reporting.png",
     gradient: "linear-gradient(160deg, #d0ccc4 0%, #a8a294 100%)",
   },
   {
     icon: Wrench,
     title: "De-Snagging",
     desc: "Our team fixes all issues with quality workmanship and care.",
-    img: "/assets/snags/desnagging.jpg",
+    img: "/assets/last.png",
     gradient: "linear-gradient(160deg, #4a3a28 0%, #26201a 100%)",
   },
   {
     icon: HomeIcon,
     title: "Quality Assured",
     desc: "We recheck and ensure everything is perfect before handover.",
-    img: "/assets/snags/quality.jpg",
+    img: "/assets/Quality.jfif",
     gradient: "linear-gradient(160deg, #3a3228 0%, #1c1812 100%)",
   },
 ];
@@ -178,7 +178,7 @@ export default function RegisterInterest() {
           {/* Left: hero panel — image as full background, text overlaid on top */}
           <div className="relative text-[#F5F1E6] min-h-[600px] lg:min-h-0">
             <Photo
-              src="/assets/register-hero.png"
+              src="/assets/support.jfif"
               alt="Luxury living room interior with Dubai skyline"
               gradient="linear-gradient(160deg, #3a2c1c 0%, #0B0A08 80%)"
               className="absolute inset-0"

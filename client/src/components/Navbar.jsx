@@ -91,7 +91,7 @@ export default function Navbar() {
           to="/register-interest"
           className="hidden md:inline-flex items-center bg-[#C6A15B] text-[#0B0A08] px-5 py-2.5 text-[11px] tracking-[0.15em] uppercase font-semibold hover:bg-[#d6b571] transition-colors"
         >
-          Get In Touch
+          Contact Us
         </Link>
 
         {/* Mobile menu toggle */}
