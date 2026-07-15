@@ -20,9 +20,7 @@ import {
  */
 
 const FOOTER_LINKS = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/#about" },
-  { label: "Services", href: "/#services" },
+  
   { label: "Projects", href: "/#projects" },
   { label: "Register Interest", href: "/register-interest" },
 ];
@@ -133,7 +131,8 @@ export default function Footer() {
             <li className="flex items-start gap-3">
               <MapPin size={16} className="text-[#C6A15B] shrink-0 mt-0.5" />
               <span className="text-[13px] text-[#F5F1E6]/65 leading-relaxed">
-                Business Bay, Dubai, UAE
+                Dubai JLT Cluster, C Palladium, Tower
+Dubai, United Arab Emirates
               </span>
             </li>
             <li className="flex items-start gap-3">

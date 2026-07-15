@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 /**
@@ -13,14 +13,18 @@ import { Menu, X } from "lucide-react";
  *
  * When not on the home page, anchor links get prefixed with "/" so they
  * still take you back to the right section on Home instead of breaking.
+ *
+ * Logo click: always takes you to "/" AND scrolls to the very top of the
+ * page — including when you're already on Home, where a plain <Link to="/">
+ * wouldn't otherwise trigger a scroll reset since the route doesn't change.
  */
 
 const NAV_LINKS = [
   { label: "Home", href: "/", type: "route" },
-  
+
   { label: "Services", href: "#services", type: "anchor" },
   { label: "Projects", href: "#projects", type: "anchor" },
-  
+
   { label: "Contact", href: "#contact", type: "anchor" },
 ];
 
@@ -28,6 +32,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const isHome = location.pathname === "/";
 
   useEffect(() => {
@@ -48,6 +53,20 @@ export default function Navbar() {
     return isHome ? link.href : `/${link.href}`;
   };
 
+  // Logo click handler: navigate home (if needed) and always scroll to top.
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+    setMobileOpen(false);
+    if (isHome) {
+      // already on "/" — Link wouldn't trigger a re-render/scroll, so do it manually
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/");
+      // wait a tick for the route change to render, then snap to top
+      requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "smooth" }));
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
@@ -57,14 +76,14 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
-        <Link to="/" className="leading-none">
+        <a href="/" onClick={handleLogoClick} className="leading-none cursor-pointer">
           <span className="block font-display text-2xl tracking-[0.3em] text-[#F5F1E6]">
             TRAX
           </span>
           <span className="block text-[9px] tracking-[0.35em] text-[#F5F1E6]/60 mt-1">
             MANAGEMENT GROUP
           </span>
-        </Link>
+        </a>
 
         <nav className="hidden lg:flex items-center gap-8">
           {NAV_LINKS.map((l) => {
@@ -130,7 +149,7 @@ export default function Navbar() {
             to="/register-interest"
             className="inline-flex items-center justify-center bg-[#C6A15B] text-[#0B0A08] px-5 py-3 text-[11px] tracking-[0.15em] uppercase font-semibold hover:bg-[#d6b571] transition-colors mt-2"
           >
-            Get In Touch
+            Book Us
           </Link>
         </div>
       )}
