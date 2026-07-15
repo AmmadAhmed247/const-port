@@ -359,9 +359,13 @@ export default function TraxLanding() {
             From concept to completion, we are your trusted partner in creating exceptional
             spaces.
           </p>
-          <Link to={"/register-interest"} className="inline-flex items-center gap-2 bg-[#C6A15B] text-[#0B0A08] px-7 py-3.5 text-[11px] tracking-[0.2em] uppercase font-semibold hover:bg-[#d6b571] transition-colors">
-            Start Your Project
-          </Link>
+          <Link
+  to="/register-interest"
+  onClick={() => window.scrollTo(0, 0)}
+  className="inline-flex items-center gap-2 bg-[#C6A15B] text-[#0B0A08] px-7 py-3.5 text-[11px] tracking-[0.2em] uppercase font-semibold hover:bg-[#d6b571] transition-colors"
+>
+  Start Your Project
+</Link>
         </div>
       </section>
 
