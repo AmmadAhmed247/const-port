@@ -17,6 +17,11 @@ import { Menu, X } from "lucide-react";
  * Logo click: always takes you to "/" AND scrolls to the very top of the
  * page — including when you're already on Home, where a plain <Link to="/">
  * wouldn't otherwise trigger a scroll reset since the route doesn't change.
+ *
+ * "Book Us" links: also force a scroll-to-top on click, as a local safety
+ * net in case the site-wide <ScrollToTop /> route listener isn't mounted.
+ * If it IS mounted in your root (inside <BrowserRouter>), this is redundant
+ * but harmless — it just runs the same scrollTo twice.
  */
 
 const NAV_LINKS = [
@@ -27,6 +32,8 @@ const NAV_LINKS = [
 
   { label: "Contact", href: "#contact", type: "anchor" },
 ];
+
+const scrollToTop = () => window.scrollTo({ top: 0, left: 0, behavior: "instant" });
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -108,6 +115,7 @@ export default function Navbar() {
 
         <Link
           to="/register-interest"
+          onClick={scrollToTop}
           className="hidden md:inline-flex items-center bg-[#C6A15B] text-[#0B0A08] px-5 py-2.5 text-[11px] tracking-[0.15em] uppercase font-semibold hover:bg-[#d6b571] transition-colors"
         >
           Book Us
@@ -147,6 +155,7 @@ export default function Navbar() {
           )}
           <Link
             to="/register-interest"
+            onClick={scrollToTop}
             className="inline-flex items-center justify-center bg-[#C6A15B] text-[#0B0A08] px-5 py-3 text-[11px] tracking-[0.15em] uppercase font-semibold hover:bg-[#d6b571] transition-colors mt-2"
           >
             Book Us
