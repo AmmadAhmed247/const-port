@@ -214,7 +214,7 @@ export default function TraxLanding() {
             </h1>
             <p className="text-[#F5F1E6]/70 text-[15px] leading-relaxed mb-9 max-w-md">
               Specialists in luxury fit-out, design, project management and quality delivery
-              across the UAE.
+              across the Globe and UAE.
             </p>
            
           </div>
@@ -236,12 +236,12 @@ export default function TraxLanding() {
                   {s.title}
                 </h3>
                 <p className="text-[13px] text-[#F5F1E6]/60 leading-relaxed mb-4">{s.desc}</p>
-                <a
+                {/* <a
                   href="#services"
                   className="inline-flex items-center gap-1.5 text-[11px] tracking-[0.15em] uppercase text-[#C6A15B] hover:text-[#d6b571]"
                 >
                   Learn More <ArrowRight size={12} />
-                </a>
+                </a> */}
               </div>
             );
           })}
@@ -262,7 +262,7 @@ export default function TraxLanding() {
               We take pride in delivering exceptional projects that reflect quality, innovation
               and excellence.
             </p>
-            <OutlineButton href="#projects">Explore All Projects</OutlineButton>
+            {/* <OutlineButton href="#projects">Explore All Projects</OutlineButton> */}
           </div>
 
           <div className="lg:col-span-9 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -295,7 +295,7 @@ export default function TraxLanding() {
               We combine industry expertise with a client-first approach to deliver spaces that
               exceed expectations.
             </p>
-            <OutlineButton href="#about">About Us</OutlineButton>
+            {/* <OutlineButton href="#about">About Us</OutlineButton> */}
           </div>
 
           <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4">

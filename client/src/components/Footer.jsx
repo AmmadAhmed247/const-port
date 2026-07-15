@@ -73,12 +73,13 @@ export default function Footer() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Brand */}
         <div>
-          <span className="font-display text-2xl tracking-[0.15em] block mb-2">TRAX</span>
+        {/* <img className="w-14 h-12" src="/assets/trax-logo.png" alt="Trax Management Group" /> */}
+          <span className="font-display text-[#C6A15B] text-2xl tracking-[0.15em] block mb-2">TRAX</span>
           <p className="text-[10px] tracking-[0.2em] uppercase text-[#F5F1E6]/60 mb-5">
             Management Group
           </p>
-          <p className="text-[12.5px] text-[#F5F1E6]/55 leading-relaxed max-w-[220px]">
-            Specialists in luxury fit-out, snagging, design and project management across the
+          <p className="text-[12.5px] text-[#F5F1E6]/55 leading-relaxed  max-w-[220px]">
+            Specialists in luxury fit-out, snagging, design and project management across the Globe and
             UAE.
           </p>
           
@@ -86,22 +87,23 @@ export default function Footer() {
 
         {/* Quick links */}
         <div>
-          <h4 className="text-[11px] tracking-[0.2em] uppercase font-semibold mb-5 text-[#C6A15B]">
-            Quick Links
-          </h4>
-          <ul className="space-y-3">
-            {FOOTER_LINKS.map((l) => (
-              <li key={l.label}>
-                <Link
-                  to={l.href}
-                  className="text-[13px] text-[#F5F1E6]/65 hover:text-[#C6A15B] transition-colors"
-                >
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+  <h4 className="text-[11px] tracking-[0.2em] uppercase font-semibold mb-5 text-[#C6A15B]">
+    Quick Links
+  </h4>
+  <ul className="space-y-3">
+    {FOOTER_LINKS.map((l) => (
+      <li key={l.label}>
+        <Link
+          to={l.href}
+          onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
+          className="text-[13px] text-[#F5F1E6]/65 hover:text-[#C6A15B] transition-colors"
+        >
+          {l.label}
+        </Link>
+      </li>
+    ))}
+  </ul>
+</div>
 
         {/* Services */}
         <div>
@@ -161,7 +163,7 @@ Dubai, United Arab Emirates
       <div className="relative z-10 border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-[11px] text-[#F5F1E6]/45">
           <p className="tracking-[0.1em]">
-            © {new Date().getFullYear()} Trax Management Group. All rights reserved.
+            © 2020 Trax Management Group. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a href="#" className="hover:text-[#C6A15B] transition-colors tracking-[0.1em]">
